@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23acd5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+label {
+  margin-top: 20px;
+  color: #000;
+  font-size: large;
+}
+
+.Add-button {
+  background-color: hsl(164, 73%, 15%);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 30px;
+}
+
+.Edit-button {
+  background-color: #ff4f00;
+  border: none;
+  width: 400px;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.submit-button {
+  background-color: #000;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  margin-top: 40px;
+  width: 200px;
+  margin-left: 10px;
+}
+
+.upload-data {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.panel-heading {
+  margin-top: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.file-btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+}
+
+
+.ImageDiv {
+  height: 200px;
+  width: 200px;
+}
+
+.ProductImage {
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  object-fit: contain;
+}
+
+.table-img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+.product-details-imgdiv{
+  width: 250px!important;
+}
+.product-details-imgdiv img{
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0px 0px 12px rgb(41, 39, 39);
+}
+@media (max-width: 425px) {
+  .edit-btn {
+    width: 100% !important;
+  }
+}
