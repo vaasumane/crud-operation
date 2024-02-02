@@ -18,6 +18,11 @@ class AddProduct extends React.Component {
             image: null,
             product_image: null,
             loading: false,
+            errors: {
+                name: '',
+                description: '',
+                image:'',
+            },
         }
         this.ref = firebase.firestore().collection("products");
 
@@ -44,10 +49,22 @@ class AddProduct extends React.Component {
             reader.readAsDataURL(file);
         }
     }
-
+    validateForm = () => {
+        const { name, description,product_image } = this.state;
+        const errors = {
+            name: name.trim() === '' ? 'Name is required' : '',
+            description: description.trim() === '' ? 'Description is required' : '',
+            image: product_image ? '' : 'Image is required',
+        };
+        this.setState({ errors });
+        return !Object.values(errors).some((error) => error !== '');
+    };
 
     handleSubmit = async (event) => {
         event.preventDefault();
+        if (!this.validateForm()) {
+            return;
+        }
 
         this.setState({ loading: true });
         const imageRef = this.storage.ref().child(`images/${this.state.product_image.name}`);
@@ -68,13 +85,18 @@ class AddProduct extends React.Component {
             image: null,
             product_image: null,
             loading: false,
+            errors: {
+                name: '',
+                description: '',
+                image:'',
+            },
         });
 
         window.location.href = "/";
     };
     render() {
 
-        const { name, description } = this.state;
+        const { name, description,errors } = this.state;
         const cardstyle = {
             width: "50rem",
             height: "auto",
@@ -106,10 +128,12 @@ class AddProduct extends React.Component {
                         <div className="">
                             <label htmlFor="name">Product Name</label>
                             <input type="text" className="form-control" name="name" value={name} onChange={this.onChange} placeholder="Please Enter Name"></input>
+                            {errors.name && <div className="error-msg">{errors.name}</div>}
                         </div>
                         <div className="p-1">
                             <label htmlFor="description">Product Description</label>
                             <textarea className="form-control" name="description" onChange={this.onChange} placeholder="Please Enter description" cols="40" rows="3" value={description}>{description}</textarea>
+                            {errors.description && <div className="error-msg">{errors.description}</div>}
                         </div>
                         <div className="upload-btn-wrapper">
 
@@ -117,6 +141,7 @@ class AddProduct extends React.Component {
 
                             <input type='file' className="form-control" onChange={this.handleChange}></input>
                         </div>
+                            {errors.image && <div className="error-msg text-center">{errors.image}</div>}
                         <div className="d-flex justify-content-center">
                             <div className="ImageDiv align-item-center">
                                 <img src={this.state.image} className="ProductImage"></img>

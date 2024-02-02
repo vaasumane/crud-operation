@@ -114,10 +114,12 @@ label {
   width: auto;
   object-fit: contain;
 }
-.product-details-imgdiv{
-  width: 250px!important;
+
+.product-details-imgdiv {
+  width: 250px !important;
 }
-.product-details-imgdiv img{
+
+.product-details-imgdiv img {
   height: -webkit-fill-available;
   width: -webkit-fill-available;
   object-fit: contain;
@@ -126,6 +128,15 @@ label {
   border: 1px solid var(--bs-border-color);
   box-shadow: 0px 0px 12px rgb(41, 39, 39);
 }
+
+.error-msg {
+  width: 100%;
+  margin-top: 0.25rem;
+  z-index: 999;
+  font-size: .875em;
+  color: var(--bs-form-invalid-color);
+}
+
 @media (max-width: 425px) {
   .edit-btn {
     width: 100% !important;
