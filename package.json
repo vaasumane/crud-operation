@@ -21,8 +21,7 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "homepage":"https://vaasumane.github.io/crud-operation/"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
