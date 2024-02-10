@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 function ShowProduct() {
     const { id } = useParams();
     const [data, setData] = useState([]);
+    const [deleteLoading, setdeleteLoading] = useState(false);
 
     useEffect(() => {
 
@@ -31,6 +32,7 @@ function ShowProduct() {
         }
     };
     const deleteProduct = async (event) => {
+        setdeleteLoading(true);
         const docRef = firebase.firestore().collection("products").doc(id);
 
 
@@ -41,9 +43,9 @@ function ShowProduct() {
             const imagePath = pathArray[1].split("?")[0];
 
 
-            const storageRef = firebase.storage().ref().child("images/" + imagePath);
-            await storageRef.delete();
             await docRef.delete();
+            // const storageRef = firebase.storage().ref().child("images/" + imagePath);
+            // await storageRef.delete();
 
             window.location.href = "/";
 
@@ -95,7 +97,7 @@ function ShowProduct() {
                                     <Link to={`/edit-product/${id}`}>
                                         <button className="submit-button " >Edit Product</button>
                                     </Link>
-                                    <button className="submit-button" onClick={deleteProduct}>Delete Product</button>
+                                    <button className="submit-button" onClick={deleteProduct}>{deleteLoading?"Loading...":"Delete Product"}</button>
                                 </div>
                             </div>
                         </Card>
