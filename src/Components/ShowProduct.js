@@ -4,13 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from '../Config';
 import { Card } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function ShowProduct() {
     const { id } = useParams();
     const [data, setData] = useState([]);
     const [deleteLoading, setdeleteLoading] = useState(false);
-
+    const navigate = useNavigate();
     useEffect(() => {
 
         if (id) {
@@ -46,8 +47,8 @@ function ShowProduct() {
             await docRef.delete();
             // const storageRef = firebase.storage().ref().child("images/" + imagePath);
             // await storageRef.delete();
-
-            window.location.href = "/";
+            navigate('/');
+            // window.location.href = "/";
 
         } catch (error) {
             console.error('Error deleting document:', error);
