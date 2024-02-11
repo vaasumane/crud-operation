@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/crud-operation/static/css/main.424f1b3a.css",
+    "main.js": "/crud-operation/static/js/main.beb97f6e.js",
+    "static/js/787.1a6b003f.chunk.js": "/crud-operation/static/js/787.1a6b003f.chunk.js",
+    "static/media/logo.svg": "/crud-operation/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/crud-operation/index.html",
+    "main.424f1b3a.css.map": "/crud-operation/static/css/main.424f1b3a.css.map",
+    "main.beb97f6e.js.map": "/crud-operation/static/js/main.beb97f6e.js.map",
+    "787.1a6b003f.chunk.js.map": "/crud-operation/static/js/787.1a6b003f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.424f1b3a.css",
+    "static/js/main.beb97f6e.js"
+  ]
+}
